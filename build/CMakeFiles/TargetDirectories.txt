@@ -1,0 +1,3 @@
+/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles/GameProject.dir
+/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles/edit_cache.dir
+/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles/rebuild_cache.dir
