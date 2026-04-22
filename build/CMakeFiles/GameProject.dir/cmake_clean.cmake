@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ahmed/Personal/Raylib/claude 2/GameProject"
-  "/home/ahmed/Personal/Raylib/claude 2/GameProject.pdb"
+  "/home/ahmed/Personal/Raylib/Chace-Game/GameProject"
+  "/home/ahmed/Personal/Raylib/Chace-Game/GameProject.pdb"
   "CMakeFiles/GameProject.dir/link.d"
   "CMakeFiles/GameProject.dir/main.cpp.o"
   "CMakeFiles/GameProject.dir/main.cpp.o.d"

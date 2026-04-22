@@ -1,10 +1,10 @@
 CMakeFiles/GameProject.dir/main.cpp.o: \
- /home/ahmed/Personal/Raylib/claude\ 2/main.cpp \
+ /home/ahmed/Personal/Raylib/Chace-Game/main.cpp \
  /usr/include/stdc-predef.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/game/GameManager.hpp \
- /home/ahmed/Personal/Raylib/claude\ 2/Raylib/include/raylib.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/game/GameManager.hpp \
+ /home/ahmed/Personal/Raylib/Chace-Game/Raylib/include/raylib.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/menu/MainMenu.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/menu/MainMenu.h \
  /usr/include/c++/15.2.1/string \
  /usr/include/c++/15.2.1/bits/requires_hosted.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -107,7 +107,7 @@ CMakeFiles/GameProject.dir/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/uses_allocator.h \
  /usr/include/c++/15.2.1/bits/std_function.h \
  /usr/include/c++/15.2.1/typeinfo \
- /home/ahmed/Personal/Raylib/claude\ 2/src/map/environment.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/map/environment.h \
  /usr/include/c++/15.2.1/fstream /usr/include/c++/15.2.1/istream \
  /usr/include/c++/15.2.1/ios /usr/include/c++/15.2.1/exception \
  /usr/include/c++/15.2.1/bits/exception_ptr.h \
@@ -161,8 +161,8 @@ CMakeFiles/GameProject.dir/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/uniform_int_dist.h \
  /usr/include/c++/15.2.1/bits/stl_tempbuf.h /usr/include/c++/15.2.1/ctime \
  /usr/include/c++/15.2.1/iostream \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/player.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/entity.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/player.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/entity.h \
  /usr/include/c++/15.2.1/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -170,8 +170,8 @@ CMakeFiles/GameProject.dir/main.cpp.o: \
  /usr/include/bits/mathcalls-helper-functions.h \
  /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
  /usr/include/bits/iscanonical.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/enemy.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/boss.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/enemy.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/boss.h \
  /usr/include/c++/15.2.1/thread /usr/include/c++/15.2.1/bits/std_thread.h \
  /usr/include/c++/15.2.1/bits/unique_ptr.h \
  /usr/include/c++/15.2.1/bits/this_thread_sleep.h \

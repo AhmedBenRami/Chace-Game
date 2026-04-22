@@ -8,15 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ahmed/Personal/Raylib/claude 2/main.cpp" "CMakeFiles/GameProject.dir/main.cpp.o" "gcc" "CMakeFiles/GameProject.dir/main.cpp.o.d"
-  "/home/ahmed/Personal/Raylib/claude 2/src/entities/boss.cpp" "CMakeFiles/GameProject.dir/src/entities/boss.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/entities/boss.cpp.o.d"
-  "/home/ahmed/Personal/Raylib/claude 2/src/entities/enemy.cpp" "CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o.d"
-  "/home/ahmed/Personal/Raylib/claude 2/src/entities/entity.cpp" "CMakeFiles/GameProject.dir/src/entities/entity.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/entities/entity.cpp.o.d"
-  "/home/ahmed/Personal/Raylib/claude 2/src/entities/player.cpp" "CMakeFiles/GameProject.dir/src/entities/player.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/entities/player.cpp.o.d"
-  "/home/ahmed/Personal/Raylib/claude 2/src/game/GameManager.cpp" "CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o.d"
-  "/home/ahmed/Personal/Raylib/claude 2/src/map/environment.cpp" "CMakeFiles/GameProject.dir/src/map/environment.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/map/environment.cpp.o.d"
-  "/home/ahmed/Personal/Raylib/claude 2/src/menu/MainMenu.cpp" "CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o.d"
-  "" "/home/ahmed/Personal/Raylib/claude 2/GameProject" "gcc" "CMakeFiles/GameProject.dir/link.d"
+  "/home/ahmed/Personal/Raylib/Chace-Game/main.cpp" "CMakeFiles/GameProject.dir/main.cpp.o" "gcc" "CMakeFiles/GameProject.dir/main.cpp.o.d"
+  "/home/ahmed/Personal/Raylib/Chace-Game/src/entities/boss.cpp" "CMakeFiles/GameProject.dir/src/entities/boss.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/entities/boss.cpp.o.d"
+  "/home/ahmed/Personal/Raylib/Chace-Game/src/entities/enemy.cpp" "CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o.d"
+  "/home/ahmed/Personal/Raylib/Chace-Game/src/entities/entity.cpp" "CMakeFiles/GameProject.dir/src/entities/entity.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/entities/entity.cpp.o.d"
+  "/home/ahmed/Personal/Raylib/Chace-Game/src/entities/player.cpp" "CMakeFiles/GameProject.dir/src/entities/player.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/entities/player.cpp.o.d"
+  "/home/ahmed/Personal/Raylib/Chace-Game/src/game/GameManager.cpp" "CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o.d"
+  "/home/ahmed/Personal/Raylib/Chace-Game/src/map/environment.cpp" "CMakeFiles/GameProject.dir/src/map/environment.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/map/environment.cpp.o.d"
+  "/home/ahmed/Personal/Raylib/Chace-Game/src/menu/MainMenu.cpp" "CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o" "gcc" "CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o.d"
+  "" "/home/ahmed/Personal/Raylib/Chace-Game/GameProject" "gcc" "CMakeFiles/GameProject.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

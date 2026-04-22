@@ -1,9 +1,9 @@
 CMakeFiles/GameProject.dir/src/entities/player.cpp.o: \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/player.cpp \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/player.cpp \
  /usr/include/stdc-predef.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/player.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/entity.h \
- /home/ahmed/Personal/Raylib/claude\ 2/Raylib/include/raylib.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/player.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/entity.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/Raylib/include/raylib.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
  /usr/include/c++/15.2.1/iostream \
  /usr/include/c++/15.2.1/bits/requires_hosted.h \
@@ -140,7 +140,7 @@ CMakeFiles/GameProject.dir/src/entities/player.cpp.o: \
  /usr/include/c++/15.2.1/bits/basic_ios.tcc \
  /usr/include/c++/15.2.1/bits/ostream.tcc /usr/include/c++/15.2.1/istream \
  /usr/include/c++/15.2.1/bits/istream.tcc \
- /home/ahmed/Personal/Raylib/claude\ 2/src/map/environment.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/map/environment.h \
  /usr/include/c++/15.2.1/vector \
  /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
  /usr/include/c++/15.2.1/bits/stl_vector.h \

@@ -53,10 +53,10 @@ RM = /usr/sbin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ahmed/Personal/Raylib/claude 2"
+CMAKE_SOURCE_DIR = /home/ahmed/Personal/Raylib/Chace-Game
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ahmed/Personal/Raylib/claude 2/build"
+CMAKE_BINARY_DIR = /home/ahmed/Personal/Raylib/Chace-Game/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/GameProject.dir/depend.make
@@ -73,116 +73,116 @@ CMakeFiles/GameProject.dir/codegen:
 .PHONY : CMakeFiles/GameProject.dir/codegen
 
 CMakeFiles/GameProject.dir/main.cpp.o: CMakeFiles/GameProject.dir/flags.make
-CMakeFiles/GameProject.dir/main.cpp.o: /home/ahmed/Personal/Raylib/claude\ 2/main.cpp
+CMakeFiles/GameProject.dir/main.cpp.o: /home/ahmed/Personal/Raylib/Chace-Game/main.cpp
 CMakeFiles/GameProject.dir/main.cpp.o: CMakeFiles/GameProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GameProject.dir/main.cpp.o"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/main.cpp.o -MF CMakeFiles/GameProject.dir/main.cpp.o.d -o CMakeFiles/GameProject.dir/main.cpp.o -c "/home/ahmed/Personal/Raylib/claude 2/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GameProject.dir/main.cpp.o"
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/main.cpp.o -MF CMakeFiles/GameProject.dir/main.cpp.o.d -o CMakeFiles/GameProject.dir/main.cpp.o -c /home/ahmed/Personal/Raylib/Chace-Game/main.cpp
 
 CMakeFiles/GameProject.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameProject.dir/main.cpp.i"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ahmed/Personal/Raylib/claude 2/main.cpp" > CMakeFiles/GameProject.dir/main.cpp.i
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ahmed/Personal/Raylib/Chace-Game/main.cpp > CMakeFiles/GameProject.dir/main.cpp.i
 
 CMakeFiles/GameProject.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameProject.dir/main.cpp.s"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ahmed/Personal/Raylib/claude 2/main.cpp" -o CMakeFiles/GameProject.dir/main.cpp.s
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ahmed/Personal/Raylib/Chace-Game/main.cpp -o CMakeFiles/GameProject.dir/main.cpp.s
 
 CMakeFiles/GameProject.dir/src/entities/boss.cpp.o: CMakeFiles/GameProject.dir/flags.make
-CMakeFiles/GameProject.dir/src/entities/boss.cpp.o: /home/ahmed/Personal/Raylib/claude\ 2/src/entities/boss.cpp
+CMakeFiles/GameProject.dir/src/entities/boss.cpp.o: /home/ahmed/Personal/Raylib/Chace-Game/src/entities/boss.cpp
 CMakeFiles/GameProject.dir/src/entities/boss.cpp.o: CMakeFiles/GameProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GameProject.dir/src/entities/boss.cpp.o"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/entities/boss.cpp.o -MF CMakeFiles/GameProject.dir/src/entities/boss.cpp.o.d -o CMakeFiles/GameProject.dir/src/entities/boss.cpp.o -c "/home/ahmed/Personal/Raylib/claude 2/src/entities/boss.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GameProject.dir/src/entities/boss.cpp.o"
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/entities/boss.cpp.o -MF CMakeFiles/GameProject.dir/src/entities/boss.cpp.o.d -o CMakeFiles/GameProject.dir/src/entities/boss.cpp.o -c /home/ahmed/Personal/Raylib/Chace-Game/src/entities/boss.cpp
 
 CMakeFiles/GameProject.dir/src/entities/boss.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameProject.dir/src/entities/boss.cpp.i"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ahmed/Personal/Raylib/claude 2/src/entities/boss.cpp" > CMakeFiles/GameProject.dir/src/entities/boss.cpp.i
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ahmed/Personal/Raylib/Chace-Game/src/entities/boss.cpp > CMakeFiles/GameProject.dir/src/entities/boss.cpp.i
 
 CMakeFiles/GameProject.dir/src/entities/boss.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameProject.dir/src/entities/boss.cpp.s"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ahmed/Personal/Raylib/claude 2/src/entities/boss.cpp" -o CMakeFiles/GameProject.dir/src/entities/boss.cpp.s
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ahmed/Personal/Raylib/Chace-Game/src/entities/boss.cpp -o CMakeFiles/GameProject.dir/src/entities/boss.cpp.s
 
 CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o: CMakeFiles/GameProject.dir/flags.make
-CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o: /home/ahmed/Personal/Raylib/claude\ 2/src/entities/enemy.cpp
+CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o: /home/ahmed/Personal/Raylib/Chace-Game/src/entities/enemy.cpp
 CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o: CMakeFiles/GameProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o -MF CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o.d -o CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o -c "/home/ahmed/Personal/Raylib/claude 2/src/entities/enemy.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o"
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o -MF CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o.d -o CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o -c /home/ahmed/Personal/Raylib/Chace-Game/src/entities/enemy.cpp
 
 CMakeFiles/GameProject.dir/src/entities/enemy.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameProject.dir/src/entities/enemy.cpp.i"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ahmed/Personal/Raylib/claude 2/src/entities/enemy.cpp" > CMakeFiles/GameProject.dir/src/entities/enemy.cpp.i
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ahmed/Personal/Raylib/Chace-Game/src/entities/enemy.cpp > CMakeFiles/GameProject.dir/src/entities/enemy.cpp.i
 
 CMakeFiles/GameProject.dir/src/entities/enemy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameProject.dir/src/entities/enemy.cpp.s"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ahmed/Personal/Raylib/claude 2/src/entities/enemy.cpp" -o CMakeFiles/GameProject.dir/src/entities/enemy.cpp.s
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ahmed/Personal/Raylib/Chace-Game/src/entities/enemy.cpp -o CMakeFiles/GameProject.dir/src/entities/enemy.cpp.s
 
 CMakeFiles/GameProject.dir/src/entities/entity.cpp.o: CMakeFiles/GameProject.dir/flags.make
-CMakeFiles/GameProject.dir/src/entities/entity.cpp.o: /home/ahmed/Personal/Raylib/claude\ 2/src/entities/entity.cpp
+CMakeFiles/GameProject.dir/src/entities/entity.cpp.o: /home/ahmed/Personal/Raylib/Chace-Game/src/entities/entity.cpp
 CMakeFiles/GameProject.dir/src/entities/entity.cpp.o: CMakeFiles/GameProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GameProject.dir/src/entities/entity.cpp.o"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/entities/entity.cpp.o -MF CMakeFiles/GameProject.dir/src/entities/entity.cpp.o.d -o CMakeFiles/GameProject.dir/src/entities/entity.cpp.o -c "/home/ahmed/Personal/Raylib/claude 2/src/entities/entity.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GameProject.dir/src/entities/entity.cpp.o"
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/entities/entity.cpp.o -MF CMakeFiles/GameProject.dir/src/entities/entity.cpp.o.d -o CMakeFiles/GameProject.dir/src/entities/entity.cpp.o -c /home/ahmed/Personal/Raylib/Chace-Game/src/entities/entity.cpp
 
 CMakeFiles/GameProject.dir/src/entities/entity.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameProject.dir/src/entities/entity.cpp.i"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ahmed/Personal/Raylib/claude 2/src/entities/entity.cpp" > CMakeFiles/GameProject.dir/src/entities/entity.cpp.i
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ahmed/Personal/Raylib/Chace-Game/src/entities/entity.cpp > CMakeFiles/GameProject.dir/src/entities/entity.cpp.i
 
 CMakeFiles/GameProject.dir/src/entities/entity.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameProject.dir/src/entities/entity.cpp.s"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ahmed/Personal/Raylib/claude 2/src/entities/entity.cpp" -o CMakeFiles/GameProject.dir/src/entities/entity.cpp.s
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ahmed/Personal/Raylib/Chace-Game/src/entities/entity.cpp -o CMakeFiles/GameProject.dir/src/entities/entity.cpp.s
 
 CMakeFiles/GameProject.dir/src/entities/player.cpp.o: CMakeFiles/GameProject.dir/flags.make
-CMakeFiles/GameProject.dir/src/entities/player.cpp.o: /home/ahmed/Personal/Raylib/claude\ 2/src/entities/player.cpp
+CMakeFiles/GameProject.dir/src/entities/player.cpp.o: /home/ahmed/Personal/Raylib/Chace-Game/src/entities/player.cpp
 CMakeFiles/GameProject.dir/src/entities/player.cpp.o: CMakeFiles/GameProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GameProject.dir/src/entities/player.cpp.o"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/entities/player.cpp.o -MF CMakeFiles/GameProject.dir/src/entities/player.cpp.o.d -o CMakeFiles/GameProject.dir/src/entities/player.cpp.o -c "/home/ahmed/Personal/Raylib/claude 2/src/entities/player.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GameProject.dir/src/entities/player.cpp.o"
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/entities/player.cpp.o -MF CMakeFiles/GameProject.dir/src/entities/player.cpp.o.d -o CMakeFiles/GameProject.dir/src/entities/player.cpp.o -c /home/ahmed/Personal/Raylib/Chace-Game/src/entities/player.cpp
 
 CMakeFiles/GameProject.dir/src/entities/player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameProject.dir/src/entities/player.cpp.i"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ahmed/Personal/Raylib/claude 2/src/entities/player.cpp" > CMakeFiles/GameProject.dir/src/entities/player.cpp.i
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ahmed/Personal/Raylib/Chace-Game/src/entities/player.cpp > CMakeFiles/GameProject.dir/src/entities/player.cpp.i
 
 CMakeFiles/GameProject.dir/src/entities/player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameProject.dir/src/entities/player.cpp.s"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ahmed/Personal/Raylib/claude 2/src/entities/player.cpp" -o CMakeFiles/GameProject.dir/src/entities/player.cpp.s
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ahmed/Personal/Raylib/Chace-Game/src/entities/player.cpp -o CMakeFiles/GameProject.dir/src/entities/player.cpp.s
 
 CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o: CMakeFiles/GameProject.dir/flags.make
-CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o: /home/ahmed/Personal/Raylib/claude\ 2/src/game/GameManager.cpp
+CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o: /home/ahmed/Personal/Raylib/Chace-Game/src/game/GameManager.cpp
 CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o: CMakeFiles/GameProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o -MF CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o.d -o CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o -c "/home/ahmed/Personal/Raylib/claude 2/src/game/GameManager.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o"
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o -MF CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o.d -o CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o -c /home/ahmed/Personal/Raylib/Chace-Game/src/game/GameManager.cpp
 
 CMakeFiles/GameProject.dir/src/game/GameManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameProject.dir/src/game/GameManager.cpp.i"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ahmed/Personal/Raylib/claude 2/src/game/GameManager.cpp" > CMakeFiles/GameProject.dir/src/game/GameManager.cpp.i
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ahmed/Personal/Raylib/Chace-Game/src/game/GameManager.cpp > CMakeFiles/GameProject.dir/src/game/GameManager.cpp.i
 
 CMakeFiles/GameProject.dir/src/game/GameManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameProject.dir/src/game/GameManager.cpp.s"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ahmed/Personal/Raylib/claude 2/src/game/GameManager.cpp" -o CMakeFiles/GameProject.dir/src/game/GameManager.cpp.s
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ahmed/Personal/Raylib/Chace-Game/src/game/GameManager.cpp -o CMakeFiles/GameProject.dir/src/game/GameManager.cpp.s
 
 CMakeFiles/GameProject.dir/src/map/environment.cpp.o: CMakeFiles/GameProject.dir/flags.make
-CMakeFiles/GameProject.dir/src/map/environment.cpp.o: /home/ahmed/Personal/Raylib/claude\ 2/src/map/environment.cpp
+CMakeFiles/GameProject.dir/src/map/environment.cpp.o: /home/ahmed/Personal/Raylib/Chace-Game/src/map/environment.cpp
 CMakeFiles/GameProject.dir/src/map/environment.cpp.o: CMakeFiles/GameProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GameProject.dir/src/map/environment.cpp.o"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/map/environment.cpp.o -MF CMakeFiles/GameProject.dir/src/map/environment.cpp.o.d -o CMakeFiles/GameProject.dir/src/map/environment.cpp.o -c "/home/ahmed/Personal/Raylib/claude 2/src/map/environment.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/GameProject.dir/src/map/environment.cpp.o"
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/map/environment.cpp.o -MF CMakeFiles/GameProject.dir/src/map/environment.cpp.o.d -o CMakeFiles/GameProject.dir/src/map/environment.cpp.o -c /home/ahmed/Personal/Raylib/Chace-Game/src/map/environment.cpp
 
 CMakeFiles/GameProject.dir/src/map/environment.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameProject.dir/src/map/environment.cpp.i"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ahmed/Personal/Raylib/claude 2/src/map/environment.cpp" > CMakeFiles/GameProject.dir/src/map/environment.cpp.i
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ahmed/Personal/Raylib/Chace-Game/src/map/environment.cpp > CMakeFiles/GameProject.dir/src/map/environment.cpp.i
 
 CMakeFiles/GameProject.dir/src/map/environment.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameProject.dir/src/map/environment.cpp.s"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ahmed/Personal/Raylib/claude 2/src/map/environment.cpp" -o CMakeFiles/GameProject.dir/src/map/environment.cpp.s
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ahmed/Personal/Raylib/Chace-Game/src/map/environment.cpp -o CMakeFiles/GameProject.dir/src/map/environment.cpp.s
 
 CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o: CMakeFiles/GameProject.dir/flags.make
-CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o: /home/ahmed/Personal/Raylib/claude\ 2/src/menu/MainMenu.cpp
+CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o: /home/ahmed/Personal/Raylib/Chace-Game/src/menu/MainMenu.cpp
 CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o: CMakeFiles/GameProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o -MF CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o.d -o CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o -c "/home/ahmed/Personal/Raylib/claude 2/src/menu/MainMenu.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o"
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o -MF CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o.d -o CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o -c /home/ahmed/Personal/Raylib/Chace-Game/src/menu/MainMenu.cpp
 
 CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.i"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ahmed/Personal/Raylib/claude 2/src/menu/MainMenu.cpp" > CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.i
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ahmed/Personal/Raylib/Chace-Game/src/menu/MainMenu.cpp > CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.i
 
 CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.s"
-	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ahmed/Personal/Raylib/claude 2/src/menu/MainMenu.cpp" -o CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.s
+	/usr/sbin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ahmed/Personal/Raylib/Chace-Game/src/menu/MainMenu.cpp -o CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.s
 
 # Object files for target GameProject
 GameProject_OBJECTS = \
@@ -198,23 +198,23 @@ GameProject_OBJECTS = \
 # External object files for target GameProject
 GameProject_EXTERNAL_OBJECTS =
 
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/main.cpp.o
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/src/entities/boss.cpp.o
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/src/entities/entity.cpp.o
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/src/entities/player.cpp.o
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/src/map/environment.cpp.o
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/build.make
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/compiler_depend.ts
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: /home/ahmed/Personal/Raylib/claude\ 2/Raylib/linux/libraylib.a
-/home/ahmed/Personal/Raylib/claude\ 2/GameProject: CMakeFiles/GameProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable \"/home/ahmed/Personal/Raylib/claude 2/GameProject\""
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/main.cpp.o
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/src/entities/boss.cpp.o
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/src/entities/enemy.cpp.o
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/src/entities/entity.cpp.o
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/src/entities/player.cpp.o
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/src/game/GameManager.cpp.o
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/src/map/environment.cpp.o
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/src/menu/MainMenu.cpp.o
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/build.make
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/compiler_depend.ts
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: /home/ahmed/Personal/Raylib/Chace-Game/Raylib/linux/libraylib.a
+/home/ahmed/Personal/Raylib/Chace-Game/GameProject: CMakeFiles/GameProject.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable /home/ahmed/Personal/Raylib/Chace-Game/GameProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/GameProject.dir/build: /home/ahmed/Personal/Raylib/claude\ 2/GameProject
+CMakeFiles/GameProject.dir/build: /home/ahmed/Personal/Raylib/Chace-Game/GameProject
 .PHONY : CMakeFiles/GameProject.dir/build
 
 CMakeFiles/GameProject.dir/clean:
@@ -222,6 +222,6 @@ CMakeFiles/GameProject.dir/clean:
 .PHONY : CMakeFiles/GameProject.dir/clean
 
 CMakeFiles/GameProject.dir/depend:
-	cd "/home/ahmed/Personal/Raylib/claude 2/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ahmed/Personal/Raylib/claude 2" "/home/ahmed/Personal/Raylib/claude 2" "/home/ahmed/Personal/Raylib/claude 2/build" "/home/ahmed/Personal/Raylib/claude 2/build" "/home/ahmed/Personal/Raylib/claude 2/build/CMakeFiles/GameProject.dir/DependInfo.cmake" "--color=$(COLOR)" GameProject
+	cd /home/ahmed/Personal/Raylib/Chace-Game/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ahmed/Personal/Raylib/Chace-Game /home/ahmed/Personal/Raylib/Chace-Game /home/ahmed/Personal/Raylib/Chace-Game/build /home/ahmed/Personal/Raylib/Chace-Game/build /home/ahmed/Personal/Raylib/Chace-Game/build/CMakeFiles/GameProject.dir/DependInfo.cmake "--color=$(COLOR)" GameProject
 .PHONY : CMakeFiles/GameProject.dir/depend
 

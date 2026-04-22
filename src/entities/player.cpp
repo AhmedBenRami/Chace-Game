@@ -12,7 +12,8 @@ Player::Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Fon
     velocity = {0.0f, 0.0f};
     onGround = false;
     facingRight = true;
-    health = 3;
+    health = 10;
+    originalHealth = health;
     coinsCollected = 0;
     damageCooldown = 2.0f;
     damageTimer = 0.0f;
@@ -286,7 +287,7 @@ void Player::drawPlayerInfos()
     DrawTextEx(hudFont, "HP:", {20, 52}, fontSize, spacing, WHITE);
     const float rectW = 22.0f, rectH = 22.0f, gap = 6.0f;
     float startX = 60.0f;
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < originalHealth; ++i)
     {
         float x = startX + i * (rectW + gap);
         if (i < health)

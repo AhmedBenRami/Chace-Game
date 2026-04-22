@@ -4,7 +4,7 @@
 # compile CXX with /usr/sbin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/ahmed/Personal/Raylib/claude 2/Raylib/include" -I"/home/ahmed/Personal/Raylib/claude 2/src" -I"/home/ahmed/Personal/Raylib/claude 2/src/entities" -I"/home/ahmed/Personal/Raylib/claude 2/src/game" -I"/home/ahmed/Personal/Raylib/claude 2/src/map" -I"/home/ahmed/Personal/Raylib/claude 2/src/menu"
+CXX_INCLUDES = -I/home/ahmed/Personal/Raylib/Chace-Game/Raylib/include -I/home/ahmed/Personal/Raylib/Chace-Game/src -I/home/ahmed/Personal/Raylib/Chace-Game/src/entities -I/home/ahmed/Personal/Raylib/Chace-Game/src/game -I/home/ahmed/Personal/Raylib/Chace-Game/src/map -I/home/ahmed/Personal/Raylib/Chace-Game/src/menu
 
 CXX_FLAGS = -std=gnu++11
 

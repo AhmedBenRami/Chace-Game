@@ -1,9 +1,9 @@
 CMakeFiles/GameProject.dir/src/entities/boss.cpp.o: \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/boss.cpp \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/boss.cpp \
  /usr/include/stdc-predef.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/boss.h \
- /home/ahmed/Personal/Raylib/claude\ 2/src/entities/entity.h \
- /home/ahmed/Personal/Raylib/claude\ 2/Raylib/include/raylib.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/boss.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/src/entities/entity.h \
+ /home/ahmed/Personal/Raylib/Chace-Game/Raylib/include/raylib.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
  /usr/include/c++/15.2.1/iostream \
  /usr/include/c++/15.2.1/bits/requires_hosted.h \

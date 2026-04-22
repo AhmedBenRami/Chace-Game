@@ -50,7 +50,7 @@ private:
     bool facingRight;
     bool onGround;
     Rectangle collisionBox; // smaller hit-box, centred on the sprite, used for all collision
-    int health;
+    int health, originalHealth;
     int coinsCollected;
     float damageCooldown;
     float damageTimer;
