@@ -21,7 +21,8 @@ static void InitAnim(Animation &anim, Texture2D tex)
 Boss::Boss(const char *imagePath,
            const char *projectilePath,
            Rectangle worldBounds,
-           int maxProjectiles)
+           int maxProjectiles,
+           const char *fireSoundPath)
     : Entity(imagePath, {0, 0}), // position fixed up below
       mapBorder(worldBounds),
       maxShots(maxProjectiles),
@@ -29,16 +30,21 @@ Boss::Boss(const char *imagePath,
       shootCooldown(SHOOT_COOLDOWN),
       shootTimer(SHOOT_COOLDOWN),
       aggroed(false),
-      defeated(false)
+      defeated(false),
+      textureHasLoaded(false)
 {
     // Place boss on the right edge of the world, snapped to the floor
     coreBox.x = mapBorder.x + mapBorder.width - coreBox.width - 10.0f;
     coreBox.y = mapBorder.y + mapBorder.height - coreBox.height;
 
-    projectileTexture = LoadTexture(projectilePath);
-    if (!IsTextureValid(projectileTexture))
+    // entitySound = single-shot fire sound played each time a projectile is spawned
+    if (fireSoundPath)
+        entitySound = LoadSound(fireSoundPath);
+
+    projectileImage = LoadImage(projectilePath);
+    if (projectileImage.data == nullptr)
     {
-        cout << "Error loading projectile sprite: " << projectilePath << endl;
+        cout << "Error loading projectile image: " << projectilePath << endl;
         exit(6);
     }
 }
@@ -46,8 +52,11 @@ Boss::Boss(const char *imagePath,
 // ── destructor ──────────────────────────────────────────────────────────────
 Boss::~Boss()
 {
-    UnloadTexture(projectileTexture);
-    // Entity destructor handles the boss body texture via currentAnimation
+    if (textureHasLoaded)
+        UnloadTexture(projectileTexture);
+    else
+        UnloadImage(projectileImage);
+    // Entity destructor handles the boss body texture / image via its own flag
 }
 
 // ── update ──────────────────────────────────────────────────────────────────
@@ -55,6 +64,14 @@ void Boss::update(float dt, float playerX)
 {
     if (defeated)
         return;
+
+    // ── Lazy texture upload (runs once on the main thread) ───────────────────
+    if (!textureHasLoaded)
+    {
+        projectileTexture = LoadTextureFromImage(projectileImage);
+        UnloadImage(projectileImage);
+        textureHasLoaded = true;
+    }
 
     // ── check aggro ─────────────────────────────────────────────────────────
     float dist = fabsf(playerX - (coreBox.x + coreBox.width / 2.0f));
@@ -156,6 +173,7 @@ void Boss::spawnProjectile(float playerX)
 
     projectiles.push_back(p);
     ++shotsFired;
+    PlaySound(entitySound); // single-shot fire sound
 }
 
 void Boss::advanceAnimation(Animation &anim, float dt)

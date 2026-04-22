@@ -26,10 +26,21 @@ class Entity
 protected:
     Rectangle coreBox; // main rectangle to frame the object on screen
     bool isPlayer;
+    bool textureHasLoaded; // true once GPU textures have been uploaded from images
+
+    // Raw CPU images — loaded immediately in constructor, used to create textures later
+    Image idleImage, runningImage, jumpingImage;
+    Image singleImage; // used by non-player entities (enemy, boss)
 
     EntityState physicalState;
     Animation idleAnimation, runningAnimation, jumpingAnimation;
     Animation *currentAnimation;
+
+    // One shared sound slot:
+    //   • Enemy  : plays while patrolling (looped footstep)
+    //   • Boss   : plays each time a projectile is fired
+    //   • Player : uses this slot for the running footstep (looped)
+    Sound entitySound;
 
 public:
     // Simplified constructors without mapBorders or ground levels

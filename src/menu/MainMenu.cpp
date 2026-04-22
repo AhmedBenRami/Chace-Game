@@ -2,22 +2,29 @@
 #include "raylib.h"
 #include <cmath>
 
-MainMenu::MainMenu(int screenW, int screenH, Font font)
+MainMenu::MainMenu(int screenW, int screenH, Font font, const char *musicPath)
     : screenW_(screenW), screenH_(screenH), font_(font)
 {
-
     BuildTitle();
     BuildButtons();
     BuildPopup();
 
     if (FileExists("assets/menu_bg.png"))
         bgTexture_ = LoadTexture("assets/menu_bg.png");
+
+    menuSound_ = {0};
+    if (musicPath)
+    {
+        menuSound_ = LoadSound(musicPath);
+    }
 }
 
 MainMenu::~MainMenu()
 {
     if (bgTexture_.id > 0)
         UnloadTexture(bgTexture_);
+    StopSound(menuSound_);
+    UnloadSound(menuSound_);
 }
 
 void MainMenu::BuildTitle()
@@ -129,6 +136,10 @@ void MainMenu::Update()
     time_ += GetFrameTime();
     titleBob_ = sinf(time_ * 2.0f) * 8.0f;
 
+    // Keep menu music looping
+    if (menuSound_.frameCount > 0 && !IsSoundPlaying(menuSound_))
+        PlaySound(menuSound_);
+
     Vector2 mouse = GetMousePosition();
 
     for (int i = 0; i < (int)buttons_.size(); ++i)
@@ -223,4 +234,16 @@ void MainMenu::DrawAboutPopup()
         string &info = aboutPopup_.infos.at(i);
         DrawTextEx(font_, info.c_str(), aboutPopup_.positions.at(i), aboutPopup_.fontSize, 1, aboutPopup_.textColor);
     }
+}
+
+void MainMenu::stopMusic()
+{
+    if (IsSoundPlaying(menuSound_))
+        StopSound(menuSound_);
+}
+
+void MainMenu::playMusic()
+{
+    if (!IsSoundPlaying(menuSound_))
+        PlaySound(menuSound_);
 }

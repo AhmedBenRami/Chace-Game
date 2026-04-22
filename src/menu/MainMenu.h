@@ -40,11 +40,14 @@ struct POPUP
 class MainMenu
 {
 public:
-    MainMenu(int screenW, int screenH, Font font);
+    MainMenu(int screenW, int screenH, Font font, const char *musicPath = nullptr);
     ~MainMenu();
 
     void Update();
     void Draw();
+
+    void stopMusic();
+    void playMusic();
 
     // Callbacks set by GameManager
     function<void()> onStart;
@@ -71,4 +74,6 @@ private:
     // Background
     Texture2D bgTexture_ = {0};
     Font font_;
+
+    Sound menuSound_; // ambient / music played while the menu is open
 };

@@ -66,6 +66,17 @@ private:
     void parseLevel(const string &filePath, int tileSize);
     void placeTrees(int tileSize);
 
+    bool textureHasLoaded; // false until GPU textures are uploaded from images
+
+    // CPU-side images (loaded in constructor, freed after texture upload)
+    Image backgroundImage;
+    Image groundImage;
+    Image blocksImage;
+    Image coinsImage;
+    Image treesImage;
+    Image teleportersImage;
+    Image gateImage;
+
     Texture2D background;
     Texture2D ground;
     Block blocks;

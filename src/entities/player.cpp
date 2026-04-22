@@ -1,7 +1,8 @@
 // player.cpp
 #include "player.h"
 
-Player::Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Font font)
+Player::Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Font font,
+               const char *runSoundPath, const char *jumpSoundPath, const char *damageSoundPath, const char *coinCollectSoundPath)
     : Entity(dirPath, startPos, true),
       mapBorder(worldBounds), originalPosition(startPos), hudFont(font)
 {
@@ -17,6 +18,20 @@ Player::Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Fon
     damageTimer = 0.0f;
     finishedLevel = false;
     reachedGate = false;
+
+    jumpSound = {0};
+    damageSound = {0};
+    coinCollectSound = {0};
+
+    // Load player sounds — entitySound (inherited) = looped running footstep
+    if (runSoundPath)
+        entitySound = LoadSound(runSoundPath);
+    if (jumpSoundPath)
+        jumpSound = LoadSound(jumpSoundPath);
+    if (damageSoundPath)
+        damageSound = LoadSound(damageSoundPath);
+    if (coinCollectSoundPath)
+        coinCollectSound = LoadSound(coinCollectSoundPath);
 
     float groundY = mapBorder.y + mapBorder.height - coreBox.height;
     coreBox.y = groundY;
@@ -62,6 +77,18 @@ void Player::update(float dt)
     else
         physicalState = JUMPING;
 
+    // ── Running sound: loop while running on the ground, stop otherwise ──────
+    if (physicalState == RUNNING)
+    {
+        if (!IsSoundPlaying(entitySound))
+            PlaySound(entitySound);
+    }
+    else
+    {
+        if (IsSoundPlaying(entitySound))
+            StopSound(entitySound);
+    }
+
     // 6. Advance animation frame
     Entity::playerUpdate();
 }
@@ -73,6 +100,7 @@ void Player::jump()
         velocity.y = jumpForce;
         onGround = false;
         physicalState = JUMPING;
+        PlaySound(jumpSound); // single-shot on leave ground
     }
 }
 
@@ -211,12 +239,14 @@ void Player::collideWithEnemy()
     {
         --health;
         damageTimer = damageCooldown; // start invincibility period
+        PlaySound(damageSound);       // single-shot on damage
     }
 }
 
 void Player::collideWithCoin()
 {
     ++coinsCollected;
+    PlaySound(coinCollectSound);
 }
 
 void Player::collideWithProjectile()
@@ -230,6 +260,13 @@ bool Player::isDead() const { return health <= 0; }
 bool Player::hasReachedGate() const { return reachedGate; }
 void Player::setFinishedLevel(bool v) { finishedLevel = v; }
 void Player::resetReachedGate() { reachedGate = false; }
+
+Player::~Player()
+{
+    // entitySound (running) is unloaded by ~Entity()
+    UnloadSound(jumpSound);
+    UnloadSound(damageSound);
+}
 
 void Player::collideWithGate()
 {
@@ -258,4 +295,15 @@ void Player::drawPlayerInfos()
             DrawRectangle((int)x, 52, (int)rectW, (int)rectH, DARKGRAY);
         DrawRectangleLinesEx({x, 52, rectW, rectH}, 1, WHITE);
     }
+}
+
+void Player::stopSound()
+{
+    if (IsSoundPlaying(entitySound))
+        StopSound(entitySound);
+}
+void Player::playSound()
+{
+    if (!IsSoundPlaying(entitySound))
+        PlaySound(entitySound);
 }

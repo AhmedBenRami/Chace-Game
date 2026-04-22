@@ -7,6 +7,7 @@
 #include "boss.h"
 #include <vector>
 #include <thread>
+#include <atomic>
 #include <chrono>
 #include <iomanip>
 
@@ -26,7 +27,9 @@ typedef enum
 class GameManager
 {
 public:
-    GameManager(int width, int height, const char *title, int fps);
+    GameManager(int width, int height, const char *title, int fps,
+                const char *winSoundPath  = nullptr,
+                const char *loseSoundPath = nullptr);
     ~GameManager();
 
     void update(float deltaTime);
@@ -57,6 +60,12 @@ private:
     int currentLevel;    // 1, 2, or 3
     float levelTimer;    // counts DOWN from levelTimerMax
     float levelTimerMax; // seconds per level (e.g. 120)
+    thread *loadingThread;         // background thread used during LOADING state
+    atomic<bool> loadingDone;      // set to true by the thread when loadLevel() finishes
+
+    Sound winSound;  // played once when the player wins the game
+    Sound loseSound; // played once when the player loses
+
     static constexpr int TOTAL_LEVELS = 3;
     static constexpr float LEVEL_TIME_LIMIT = 120.0f; // seconds per level
 };

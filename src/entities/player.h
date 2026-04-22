@@ -10,7 +10,11 @@ using namespace std;
 class Player : public Entity
 {
 public:
-    Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Font font);
+    Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Font font,
+           const char *runSoundPath,
+           const char *jumpSoundPath,
+           const char *damageSoundPath, const char *coinCollectSoundPath);
+    ~Player();
 
     void update(float dt);
     void draw() override;
@@ -33,6 +37,9 @@ public:
     void setFinishedLevel(bool v);
     void resetReachedGate(); // reset between levels
 
+    void stopSound();
+    void playSound();
+
 private:
     Vector2 originalPosition;
     Vector2 velocity;
@@ -50,6 +57,11 @@ private:
     bool finishedLevel;
     bool reachedGate;
     Font hudFont;
+
+    // Sounds  (entitySound inherited from Entity is the looped running footstep)
+    Sound jumpSound;   // played once when the player leaves the ground
+    Sound damageSound; // played once when the player takes a hit
+    Sound coinCollectSound;
 
     void jump();
     void handleInput();

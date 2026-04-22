@@ -5,24 +5,36 @@ Environment::Environment(const char *levelFilePath, const char *bgPath, const ch
                          const char *treePath, const char *teleporterPath,
                          const char *gatePath)
 {
+    textureHasLoaded = false;
 
-    background = LoadTexture(bgPath);
-    ground = LoadTexture(groundPath);
-    blocks.texture = LoadTexture(blockPath);
-    coins.texture = LoadTexture(coinPath);
-    trees.texture = LoadTexture(treePath);
-    teleporters.texture = LoadTexture(teleporterPath);
-    gate.texture = LoadTexture(gatePath);
+    // Load all assets as CPU images — no GPU calls yet
+    backgroundImage = LoadImage(bgPath);
+    groundImage = LoadImage(groundPath);
+    blocksImage = LoadImage(blockPath);
+    coinsImage = LoadImage(coinPath);
+    treesImage = LoadImage(treePath);
+    teleportersImage = LoadImage(teleporterPath);
+    gateImage = LoadImage(gatePath);
+
+    // Zero-init the Texture2D structs so IsTextureValid() returns false safely
+    background = {0};
+    ground = {0};
+    blocks.texture = {0};
+    coins.texture = {0};
+    trees.texture = {0};
+    teleporters.texture = {0};
+    gate.texture = {0};
     gate.active = false; // locked until boss is defeated
 
-    tileSize = blocks.texture.width;
+    // Use the block image width as tileSize (same as before)
+    tileSize = blocksImage.width;
 
     parseLevel(levelFilePath, tileSize);
     placeTrees(tileSize);
 
     // Place the gate at the far right of the world, sitting on the ground
-    float gw = (float)gate.texture.width;
-    float gh = (float)gate.texture.height;
+    float gw = (float)gateImage.width;
+    float gh = (float)gateImage.height;
     gate.rect = {worldBounds.x + worldBounds.width - gw - 4.0f,
                  worldBounds.y + worldBounds.height - gh,
                  gw, gh};
@@ -30,12 +42,26 @@ Environment::Environment(const char *levelFilePath, const char *bgPath, const ch
 
 Environment::~Environment()
 {
-    UnloadTexture(background);
-    UnloadTexture(blocks.texture);
-    UnloadTexture(coins.texture);
-    UnloadTexture(trees.texture);
-    UnloadTexture(teleporters.texture);
-    UnloadTexture(gate.texture);
+    if (textureHasLoaded)
+    {
+        UnloadTexture(background);
+        UnloadTexture(ground);
+        UnloadTexture(blocks.texture);
+        UnloadTexture(coins.texture);
+        UnloadTexture(trees.texture);
+        UnloadTexture(teleporters.texture);
+        UnloadTexture(gate.texture);
+    }
+    else
+    {
+        UnloadImage(backgroundImage);
+        UnloadImage(groundImage);
+        UnloadImage(blocksImage);
+        UnloadImage(coinsImage);
+        UnloadImage(treesImage);
+        UnloadImage(teleportersImage);
+        UnloadImage(gateImage);
+    }
 }
 
 void Environment::parseLevel(const string &filePath, int tileSize)
@@ -63,7 +89,7 @@ void Environment::parseLevel(const string &filePath, int tileSize)
     int maxRows = height;   // number of lines
     // cout << "maxCol : "<< maxCols << ", " <<
     // worldBounds = {0, 0, (float)maxCols * tileSize, (float)maxRows * tileSize};
-    worldBounds = {0, 0, (float)ground.width, (float)GetScreenHeight() - ground.height};
+    worldBounds = {0, 0, (float)groundImage.width, (float)GetScreenHeight() - groundImage.height};
 
     for (int row = 0; row < height; ++row)
     {
@@ -128,10 +154,32 @@ void Environment::placeTrees(int tileSize)
 
 void Environment::update()
 {
+    if (!textureHasLoaded)
+    {
+        background = LoadTextureFromImage(backgroundImage);
+        ground = LoadTextureFromImage(groundImage);
+        blocks.texture = LoadTextureFromImage(blocksImage);
+        coins.texture = LoadTextureFromImage(coinsImage);
+        trees.texture = LoadTextureFromImage(treesImage);
+        teleporters.texture = LoadTextureFromImage(teleportersImage);
+        gate.texture = LoadTextureFromImage(gateImage);
+
+        UnloadImage(backgroundImage);
+        UnloadImage(groundImage);
+        UnloadImage(blocksImage);
+        UnloadImage(coinsImage);
+        UnloadImage(treesImage);
+        UnloadImage(teleportersImage);
+        UnloadImage(gateImage);
+
+        textureHasLoaded = true;
+    }
 }
 
 void Environment::drawBg() const
 {
+    if (!textureHasLoaded)
+        return;
     // Background
     DrawTexturePro(background,
                    {0, 0, (float)background.width, (float)background.height},
@@ -140,6 +188,8 @@ void Environment::drawBg() const
 }
 void Environment::draw() const
 {
+    if (!textureHasLoaded)
+        return;
     // ground
     DrawTexture(ground, worldBounds.x, worldBounds.height, WHITE);
 

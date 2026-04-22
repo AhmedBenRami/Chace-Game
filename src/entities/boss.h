@@ -24,7 +24,8 @@ public:
     Boss(const char *imagePath,
          const char *projectilePath,
          Rectangle worldBounds,
-         int maxProjectiles = 20);
+         int maxProjectiles = 20,
+         const char *fireSoundPath = nullptr);
 
     ~Boss();
 
@@ -44,7 +45,9 @@ public:
 private:
     Rectangle mapBorder;
 
-    Texture2D projectileTexture; // shared texture for all projectiles
+    Image     projectileImage;   // CPU-side image loaded in constructor
+    Texture2D projectileTexture; // GPU texture, created on first update()
+    bool      textureHasLoaded;  // false until projectileTexture is uploaded
     vector<Projectile> projectiles;
 
     int maxShots;        // total shots allowed

@@ -1,6 +1,7 @@
 #include "GameManager.hpp"
 
-GameManager::GameManager(int width, int height, const char *title, int fps)
+GameManager::GameManager(int width, int height, const char *title, int fps,
+                         const char *winSoundPath, const char *loseSoundPath)
 {
     windowSize = {(float)width, (float)height};
     InitWindow(width, height, title);
@@ -11,7 +12,7 @@ GameManager::GameManager(int width, int height, const char *title, int fps)
     canvas = LoadRenderTexture(width, height);
     loadingBackground = LoadTexture("assets/loading_bg.png");
 
-    mainMenu = new MainMenu(width, height, globalFont);
+    mainMenu = new MainMenu(width, height, globalFont, "assets/menu_music.mp3");
 
     mainMenu->onStart = [this]()
     { setState(LOADING); };
@@ -22,9 +23,18 @@ GameManager::GameManager(int width, int height, const char *title, int fps)
     boss = nullptr;
     player = nullptr;
     map = nullptr;
+    loadingThread = nullptr;
+    loadingDone = false;
     currentLevel = 1;
     levelTimer = LEVEL_TIME_LIMIT;
     levelTimerMax = LEVEL_TIME_LIMIT;
+
+    winSound = {0};
+    loseSound = {0};
+    if (winSoundPath)
+        winSound = LoadSound(winSoundPath);
+    if (loseSoundPath)
+        loseSound = LoadSound(loseSoundPath);
 
     camera.target = {0, 0};
     camera.offset = {0, windowSize.y / 2};
@@ -34,6 +44,14 @@ GameManager::GameManager(int width, int height, const char *title, int fps)
 
 GameManager::~GameManager()
 {
+    // Make sure the loading thread has finished before tearing down
+    if (loadingThread)
+    {
+        if (loadingThread->joinable())
+            loadingThread->join();
+        delete loadingThread;
+        loadingThread = nullptr;
+    }
     delete mainMenu;
     delete boss;
     delete player;
@@ -44,6 +62,8 @@ GameManager::~GameManager()
     UnloadRenderTexture(canvas);
     UnloadFont(globalFont);
     UnloadTexture(loadingBackground);
+    UnloadSound(winSound);
+    UnloadSound(loseSound);
     CloseAudioDevice();
     CloseWindow();
 }
@@ -57,16 +77,36 @@ void GameManager::update(float deltaTime)
     switch (gameState)
     {
     case MENU:
+        mainMenu->playMusic();
         mainMenu->Update();
         break;
 
     case LOADING:
-        unloadComponents();
-        loadLevel(currentLevel);
+        // Spawn the loading thread once — it does disk I/O + object construction.
+        // GPU texture uploads happen lazily on the main thread inside each object's update().
+        mainMenu->stopMusic();
+        if (!loadingThread)
+        {
+            unloadComponents();
+            loadingDone = false;
+            loadingThread = new thread(&GameManager::loadComponents, this);
+            loadingThread->detach();
+        }
+        // Once the background thread signals it's done, clean up and start playing
+        if (loadingDone.load())
+        {
+            delete loadingThread;
+            loadingThread = nullptr;
+            loadingDone = false;
+            // gameState is already set to PLAYING inside loadLevel()
+        }
         break;
 
     case PLAYING:
     {
+        player->playSound();
+        for (Enemy *e : enemies)
+            e->playSound();
         // ── PAUSE toggle ─────────────────────────────────────────────────────
         if (IsKeyPressed(KEY_ENTER))
         {
@@ -79,6 +119,8 @@ void GameManager::update(float deltaTime)
         if (levelTimer <= 0.0f)
         {
             levelTimer = 0.0f;
+            if (loseSound.frameCount > 0)
+                PlaySound(loseSound);
             setState(LOSE);
             break;
         }
@@ -149,6 +191,8 @@ void GameManager::update(float deltaTime)
             }
             else
             {
+                if (winSound.frameCount > 0)
+                    PlaySound(winSound);
                 setState(WIN);
             }
             break;
@@ -157,6 +201,8 @@ void GameManager::update(float deltaTime)
         // ── Player dead ───────────────────────────────────────────────────────
         if (player->isDead())
         {
+            if (loseSound.frameCount > 0)
+                PlaySound(loseSound);
             setState(LOSE);
             break;
         }
@@ -186,24 +232,35 @@ void GameManager::update(float deltaTime)
     }
 
     case PAUSED:
+        player->stopSound();
+        for (Enemy *e : enemies)
+            e->stopSound();
+
         if (IsKeyPressed(KEY_ENTER))
             setState(PLAYING);
         break;
 
     case WIN:
-        if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_SPACE))
+        if (IsKeyPressed(KEY_ENTER))
         {
             currentLevel = 1;
             setState(MENU);
         }
+        player->stopSound();
+        for (Enemy *e : enemies)
+            e->stopSound();
         break;
 
     case LOSE:
-        if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_SPACE))
+        if (IsKeyPressed(KEY_ENTER))
         {
             currentLevel = 1;
             setState(MENU);
         }
+        player->stopSound();
+        for (Enemy *e : enemies)
+            e->stopSound();
+
         break;
 
     case EXIT:
@@ -347,7 +404,13 @@ void GameManager::unloadComponents()
 
 void GameManager::loadComponents()
 {
+    // Artificial delay so the loading screen is visible (runs on background thread)
+    this_thread::sleep_for(chrono::seconds(3));
+
     loadLevel(currentLevel);
+
+    // Signal the main thread that loading has finished
+    loadingDone = true;
 }
 
 void GameManager::loadLevel(int level)
@@ -367,7 +430,11 @@ void GameManager::loadLevel(int level)
                           "assets/gate.png");
 
     // ── Player ────────────────────────────────────────────────────────────────
-    player = new Player("assets", {100, 100}, map->getWorldBounds(), globalFont);
+    player = new Player("assets", {100, 100}, map->getWorldBounds(), globalFont,
+                        "assets/player_run.mp3",
+                        "assets/player_jump.mp3",
+                        "assets/player_damage.mp3",
+                        "assets/player_coinCollect.mp3");
     player->resetReachedGate();
 
     Rectangle wb = map->getWorldBounds();
@@ -375,24 +442,24 @@ void GameManager::loadLevel(int level)
     // ── Enemies — scale count and speed with level ────────────────────────────
     if (level == 1)
     {
-        enemies.push_back(new Enemy("assets/enemy.png", {400, 0}, wb, 120.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {700, 0}, wb, 90.0f));
+        enemies.push_back(new Enemy("assets/enemy.png", {400, 0}, wb, 120.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {700, 0}, wb, 90.0f, "assets/enemy_walk.mp3"));
     }
     else if (level == 2)
     {
-        enemies.push_back(new Enemy("assets/enemy.png", {300, 0}, wb, 140.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {600, 0}, wb, 120.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {900, 0}, wb, 110.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {1200, 0}, wb, 130.0f));
+        enemies.push_back(new Enemy("assets/enemy.png", {300, 0}, wb, 140.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {600, 0}, wb, 120.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {900, 0}, wb, 110.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {1200, 0}, wb, 130.0f, "assets/enemy_walk.mp3"));
     }
     else // level 3
     {
-        enemies.push_back(new Enemy("assets/enemy.png", {300, 0}, wb, 160.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {600, 0}, wb, 150.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {900, 0}, wb, 140.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {1200, 0}, wb, 170.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {1500, 0}, wb, 155.0f));
-        enemies.push_back(new Enemy("assets/enemy.png", {1800, 0}, wb, 145.0f));
+        enemies.push_back(new Enemy("assets/enemy.png", {300, 0}, wb, 160.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {600, 0}, wb, 150.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {900, 0}, wb, 140.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {1200, 0}, wb, 170.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {1500, 0}, wb, 155.0f, "assets/enemy_walk.mp3"));
+        enemies.push_back(new Enemy("assets/enemy.png", {1800, 0}, wb, 145.0f, "assets/enemy_walk.mp3"));
     }
 
     // ── Boss — more projectiles each level ────────────────────────────────────
@@ -401,7 +468,8 @@ void GameManager::loadLevel(int level)
     boss = new Boss("assets/boss.png",
                     "assets/projectile.png",
                     wb,
-                    bossShots);
+                    bossShots,
+                    "assets/boss_fire.mp3");
 
     // ── Reset timer ───────────────────────────────────────────────────────────
     levelTimer = LEVEL_TIME_LIMIT;

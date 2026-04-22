@@ -1,8 +1,8 @@
 // enemy.cpp
 #include "enemy.h"
 
-Enemy::Enemy(const char *imagePath, Vector2 position, Rectangle worldBounds, float speed)
-    : Entity(imagePath, position), // Entity loads the texture and sets up coreBox + animation
+Enemy::Enemy(const char *imagePath, Vector2 position, Rectangle worldBounds, float speed, const char *walkSoundPath)
+    : Entity(imagePath, position),
       mapBorder(worldBounds), moveSpeed(speed), dirX(1.0f), alive(true)
 {
     // Snap to world floor on spawn
@@ -11,12 +11,24 @@ Enemy::Enemy(const char *imagePath, Vector2 position, Rectangle worldBounds, flo
 
     coreBox.height = currentAnimation->currentFrame.height / 2;
     coreBox.y += coreBox.height;
+
+    // entitySound = looped patrol footstep
+    if (walkSoundPath)
+        entitySound = LoadSound(walkSoundPath);
 }
 
 void Enemy::update(float dt)
 {
     if (!alive)
+    {
+        if (IsSoundPlaying(entitySound))
+            StopSound(entitySound);
         return;
+    }
+
+    // ── Patrol footstep: loop while alive ────────────────────────────────────
+    if (!IsSoundPlaying(entitySound))
+        PlaySound(entitySound);
 
     // Move horizontally
     coreBox.x += moveSpeed * dirX * dt;
@@ -57,3 +69,21 @@ void Enemy::draw()
 
 Rectangle Enemy::getCoreBox() const { return coreBox; }
 bool Enemy::isAlive() const { return alive; }
+
+void Enemy::stopSound()
+{
+    if (IsSoundPlaying(entitySound))
+        StopSound(entitySound);
+}
+void Enemy::playSound()
+{
+    if (!IsSoundPlaying(entitySound))
+        PlaySound(entitySound);
+}
+Enemy::~Enemy()
+{
+    // Stop playback before ~Entity() calls UnloadSound(entitySound)
+    if (IsSoundPlaying(entitySound))
+        StopSound(entitySound);
+    // entitySound itself is unloaded by ~Entity()
+}
