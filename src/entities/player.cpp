@@ -136,7 +136,7 @@ void Player::draw()
     if (damageTimer > 0.0f)
         tint = RED;
 
-    DrawTexturePro(holoTexture, {0, 0, (float)holoTexture.width, (float)holoTexture.height}, coreBox, {0, 0}, sin(1.5 * GetTime() + sin(1.5 * GetTime())), WHITE);
+    // DrawTexturePro(holoTexture, {0, 0, (float)holoTexture.width, (float)holoTexture.height}, coreBox, {0, 0}, sin(1.5 * GetTime() + sin(1.5 * GetTime())), WHITE);
 
     DrawTexturePro(currentAnimation->tileTexture, srcRect, coreBox, {0, 0}, 0, tint);
 }
