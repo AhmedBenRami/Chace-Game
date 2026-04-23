@@ -2,7 +2,7 @@
 #include "player.h"
 
 Player::Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Font font,
-               const char *runSoundPath, const char *jumpSoundPath, const char *damageSoundPath, const char *coinCollectSoundPath)
+               const char *runSoundPath, const char *jumpSoundPath, const char *damageSoundPath, const char *coinCollectSoundPath, int HP)
     : Entity(dirPath, startPos, true),
       mapBorder(worldBounds), originalPosition(startPos), hudFont(font)
 {
@@ -12,7 +12,7 @@ Player::Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Fon
     velocity = {0.0f, 0.0f};
     onGround = false;
     facingRight = true;
-    health = 10;
+    health = HP;
     originalHealth = health;
     coinsCollected = 0;
     damageCooldown = 2.0f;
@@ -135,6 +135,8 @@ void Player::draw()
     Color tint = WHITE;
     if (damageTimer > 0.0f)
         tint = RED;
+
+    DrawTexturePro(holoTexture, {0, 0, (float)holoTexture.width, (float)holoTexture.height}, coreBox, {0, 0}, sin(1.5 * GetTime() + sin(1.5 * GetTime())), WHITE);
 
     DrawTexturePro(currentAnimation->tileTexture, srcRect, coreBox, {0, 0}, 0, tint);
 }

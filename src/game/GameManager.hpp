@@ -11,6 +11,9 @@
 #include <chrono>
 #include <iomanip>
 
+#define TOTAL_LEVELS 3
+#define LEVEL_TIME_LIMIT 120.0
+
 using namespace std;
 
 typedef enum
@@ -28,8 +31,8 @@ class GameManager
 {
 public:
     GameManager(int width, int height, const char *title, int fps,
-                const char *winSoundPath  = nullptr,
-                const char *loseSoundPath = nullptr);
+                const char *winSoundPath,
+                const char *loseSoundPath);
     ~GameManager();
 
     void update(float deltaTime);
@@ -47,7 +50,6 @@ private:
     Vector2 windowSize;
     GameState gameState;
     Font globalFont;
-    RenderTexture2D canvas;
     Texture2D loadingBackground;
 
     Camera2D camera;
@@ -57,15 +59,12 @@ private:
     Boss *boss;
     vector<Enemy *> enemies;
 
-    int currentLevel;    // 1, 2, or 3
-    float levelTimer;    // counts DOWN from levelTimerMax
-    float levelTimerMax; // seconds per level (e.g. 120)
-    thread *loadingThread;         // background thread used during LOADING state
-    atomic<bool> loadingDone;      // set to true by the thread when loadLevel() finishes
+    int currentLevel;         // 1, 2, or 3
+    float levelTimer;         // counts DOWN from levelTimerMax
+    float levelTimerMax;      // seconds per level (e.g. 120)
+    thread *loadingThread;    // background thread used during LOADING state
+    atomic<bool> loadingDone; // set to true by the thread when loadLevel() finishes
 
     Sound winSound;  // played once when the player wins the game
     Sound loseSound; // played once when the player loses
-
-    static constexpr int TOTAL_LEVELS = 3;
-    static constexpr float LEVEL_TIME_LIMIT = 120.0f; // seconds per level
 };

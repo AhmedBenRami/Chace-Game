@@ -19,7 +19,7 @@ Entity::Entity(const char *imagePath, Vector2 position)
     isPlayer = false;
     textureHasLoaded = false;
     currentAnimation = new Animation;
-    entitySound = {0};  // zero-init; subclass constructors load the actual sound
+    entitySound = {0}; // zero-init; subclass constructors load the actual sound
 
     singleImage = LoadImage(imagePath);
     if (singleImage.data == nullptr)
@@ -46,11 +46,12 @@ Entity::Entity(const char *dirPath, Vector2 position, bool isPlayer)
 {
     this->isPlayer = isPlayer;
     textureHasLoaded = false;
-    entitySound = {0};  // zero-init; Player constructor loads the actual sound
+    entitySound = {0}; // zero-init; Player constructor loads the actual sound
 
-    idleImage    = LoadImage(TextFormat("%s/player_idle.png",  dirPath));
-    runningImage = LoadImage(TextFormat("%s/player_run.png",   dirPath));
-    jumpingImage = LoadImage(TextFormat("%s/player_jump.png",  dirPath));
+    idleImage = LoadImage(TextFormat("%s/player_idle.png", dirPath));
+    runningImage = LoadImage(TextFormat("%s/player_run.png", dirPath));
+    jumpingImage = LoadImage(TextFormat("%s/player_jump.png", dirPath));
+    holoImage = LoadImage(TextFormat("%s/player_holo.png", dirPath));
 
     if (idleImage.data == nullptr || runningImage.data == nullptr || jumpingImage.data == nullptr)
     {
@@ -65,18 +66,18 @@ Entity::Entity(const char *dirPath, Vector2 position, bool isPlayer)
     auto initFromImage = [](Animation &anim, const Image &img, Rectangle box)
     {
         anim.currentFrame = {0, 0, box.width, box.height};
-        anim.firstIndex   = 0;
+        anim.firstIndex = 0;
         anim.currentIndex = 0;
-        anim.lastIndex    = img.width / img.height;
-        anim.speed        = 0.15f;
-        anim.timeLeft     = 0.15f;
+        anim.lastIndex = img.width / img.height;
+        anim.speed = 0.15f;
+        anim.timeLeft = 0.15f;
     };
 
-    initFromImage(idleAnimation,    idleImage,    coreBox);
+    initFromImage(idleAnimation, idleImage, coreBox);
     initFromImage(runningAnimation, runningImage, coreBox);
     initFromImage(jumpingAnimation, jumpingImage, coreBox);
 
-    physicalState    = IDLE;
+    physicalState = IDLE;
     currentAnimation = &idleAnimation;
 }
 
@@ -87,13 +88,15 @@ void Entity::update()
     {
         if (isPlayer)
         {
-            idleAnimation.tileTexture    = LoadTextureFromImage(idleImage);
+            idleAnimation.tileTexture = LoadTextureFromImage(idleImage);
             runningAnimation.tileTexture = LoadTextureFromImage(runningImage);
             jumpingAnimation.tileTexture = LoadTextureFromImage(jumpingImage);
+            holoTexture = LoadTextureFromImage(holoImage);
 
             UnloadImage(idleImage);
             UnloadImage(runningImage);
             UnloadImage(jumpingImage);
+            UnloadImage(holoImage);
         }
         else
         {
@@ -116,7 +119,7 @@ void Entity::playerUpdate()
 {
     if (!textureHasLoaded)
     {
-        idleAnimation.tileTexture    = LoadTextureFromImage(idleImage);
+        idleAnimation.tileTexture = LoadTextureFromImage(idleImage);
         runningAnimation.tileTexture = LoadTextureFromImage(runningImage);
         jumpingAnimation.tileTexture = LoadTextureFromImage(jumpingImage);
 
@@ -151,7 +154,9 @@ void Entity::playerUpdate()
 
 void Entity::draw()
 {
-    if (!textureHasLoaded) return; // nothing to draw yet
+    if (!textureHasLoaded)
+        return; // nothing to draw yet
+
     DrawTexturePro(currentAnimation->tileTexture, currentAnimation->currentFrame, coreBox, {0, 0}, 0, WHITE);
 }
 
@@ -185,4 +190,3 @@ Entity::~Entity()
         delete currentAnimation;
     }
 }
-

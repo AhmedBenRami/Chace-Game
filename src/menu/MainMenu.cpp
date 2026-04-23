@@ -104,7 +104,7 @@ void MainMenu::BuildButtons()
 
 void MainMenu::BuildPopup()
 {
-    float pw = screenW_ - 400, ph = screenH_ - 400;
+    float pw = screenW_ - 400, ph = screenH_ - 300;
     aboutPopup_.border = {screenW_ / 2.0f - pw / 2, screenH_ / 2.0f - ph / 2, pw, ph};
     aboutPopup_.bg = {80, 80, 80, 255};
     aboutPopup_.borderColor = {30, 45, 45, 255};
@@ -114,9 +114,10 @@ void MainMenu::BuildPopup()
         "Navigate levels, defeat enemies, collect coins,",
         "and defeat the Boss to complete each stage.",
         "",
-        "Arrow Keys / WASD  -  Move",
-        "Space / W / Up     -  Jump",
-        "Enter              -  Pause / Resume",
+        "Arrow Keys  -  Move",
+        "Space       -  Jump",
+        "Enter       -  Pause / Resume",
+        "Escape      -  Exit game",
         "",
         "Survive the timer, beat the boss, reach the gate",
         "to advance. 3 levels of increasing difficulty.",

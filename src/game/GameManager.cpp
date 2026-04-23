@@ -9,7 +9,6 @@ GameManager::GameManager(int width, int height, const char *title, int fps,
     InitAudioDevice();
 
     globalFont = LoadFont("assets/font.ttf");
-    canvas = LoadRenderTexture(width, height);
     loadingBackground = LoadTexture("assets/loading_bg.png");
 
     mainMenu = new MainMenu(width, height, globalFont, "assets/menu_music.mp3");
@@ -59,7 +58,6 @@ GameManager::~GameManager()
     for (Enemy *e : enemies)
         delete e;
     enemies.clear();
-    UnloadRenderTexture(canvas);
     UnloadFont(globalFont);
     UnloadTexture(loadingBackground);
     UnloadSound(winSound);
@@ -434,7 +432,7 @@ void GameManager::loadLevel(int level)
                         "assets/player_run.mp3",
                         "assets/player_jump.mp3",
                         "assets/player_damage.mp3",
-                        "assets/player_coinCollect.mp3");
+                        "assets/player_coinCollect.mp3", 10);
     player->resetReachedGate();
 
     Rectangle wb = map->getWorldBounds();
@@ -463,8 +461,8 @@ void GameManager::loadLevel(int level)
     }
 
     // ── Boss — more projectiles each level ────────────────────────────────────
-    int bossShots = (level == 1) ? 20 : (level == 2) ? 30
-                                                     : 40;
+    int bossShots = (level == 1) ? 5 : (level == 2) ? 10
+                                                    : 20;
     boss = new Boss("assets/boss.png",
                     "assets/projectile.png",
                     wb,
@@ -482,7 +480,7 @@ void GameManager::drawLoading() const
     DrawTexturePro(
         loadingBackground,
         {0, 0, (float)loadingBackground.width, (float)loadingBackground.height},
-        {0, 0, (float)canvas.texture.width, (float)canvas.texture.height},
+        {0, 0, (float)windowSize.x, (float)windowSize.y},
         {0, 0}, 0.0f, WHITE);
 
     // Draw "Loading..." text at bottom right
@@ -492,8 +490,8 @@ void GameManager::drawLoading() const
     Vector2 textSize = MeasureTextEx(globalFont, text, fontSize, spacing);
     float padding = 20.0f;
     Vector2 position = {
-        (canvas.texture.width - textSize.x) / 2,
-        canvas.texture.height - textSize.y - padding};
+        (windowSize.x - textSize.x) / 2,
+        windowSize.y - textSize.y - padding};
     // Vector2 position = {0, 0};
     DrawTextEx(globalFont, text, position, fontSize, spacing, WHITE);
 

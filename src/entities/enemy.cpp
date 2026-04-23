@@ -1,4 +1,3 @@
-// enemy.cpp
 #include "enemy.h"
 
 Enemy::Enemy(const char *imagePath, Vector2 position, Rectangle worldBounds, float speed, const char *walkSoundPath)

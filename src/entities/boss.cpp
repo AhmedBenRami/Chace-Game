@@ -1,8 +1,6 @@
-// boss.cpp
 #include "boss.h"
 #include <cmath>
 #include <iostream>
-using namespace std;
 
 // ── helper: initialise an Animation from a loaded texture ──────────────────
 static void InitAnim(Animation &anim, Texture2D tex)

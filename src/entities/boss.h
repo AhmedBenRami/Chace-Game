@@ -4,6 +4,11 @@
 #include <vector>
 using namespace std;
 
+#define TRIGGER_DISTANCE 500.0 // px — boss wakes up
+#define PROJECTILE_SPEED 400.0 // px/s
+#define PROJECTILE_LIFE 3.0    // seconds before auto-despawn
+#define SHOOT_COOLDOWN 1.2     // seconds between shots
+
 // An animated projectile fired by the boss
 struct Projectile
 {
@@ -24,8 +29,8 @@ public:
     Boss(const char *imagePath,
          const char *projectilePath,
          Rectangle worldBounds,
-         int maxProjectiles = 20,
-         const char *fireSoundPath = nullptr);
+         int maxProjectiles,
+         const char *fireSoundPath);
 
     ~Boss();
 
@@ -45,9 +50,9 @@ public:
 private:
     Rectangle mapBorder;
 
-    Image     projectileImage;   // CPU-side image loaded in constructor
+    Image projectileImage;       // CPU-side image loaded in constructor
     Texture2D projectileTexture; // GPU texture, created on first update()
-    bool      textureHasLoaded;  // false until projectileTexture is uploaded
+    bool textureHasLoaded;       // false until projectileTexture is uploaded
     vector<Projectile> projectiles;
 
     int maxShots;        // total shots allowed
@@ -57,11 +62,6 @@ private:
 
     bool aggroed;  // true once player is within trigger distance
     bool defeated; // true once shotsFired == maxShots
-
-    static constexpr float TRIGGER_DISTANCE = 500.0f; // px — boss wakes up
-    static constexpr float PROJECTILE_SPEED = 400.0f; // px/s
-    static constexpr float PROJECTILE_LIFE = 3.0f;    // seconds before auto-despawn
-    static constexpr float SHOOT_COOLDOWN = 1.2f;     // seconds between shots
 
     void spawnProjectile(float playerX);
     void advanceAnimation(Animation &anim, float dt);

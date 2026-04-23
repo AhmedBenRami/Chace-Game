@@ -2,6 +2,7 @@
 
 #include "raylib.h"
 #include <iostream>
+#include <cmath>
 
 typedef enum
 {
@@ -29,12 +30,13 @@ protected:
     bool textureHasLoaded; // true once GPU textures have been uploaded from images
 
     // Raw CPU images — loaded immediately in constructor, used to create textures later
-    Image idleImage, runningImage, jumpingImage;
+    Image idleImage, runningImage, jumpingImage, holoImage;
     Image singleImage; // used by non-player entities (enemy, boss)
 
     EntityState physicalState;
     Animation idleAnimation, runningAnimation, jumpingAnimation;
     Animation *currentAnimation;
+    Texture2D holoTexture;
 
     // One shared sound slot:
     //   • Enemy  : plays while patrolling (looped footstep)

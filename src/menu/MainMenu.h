@@ -40,7 +40,7 @@ struct POPUP
 class MainMenu
 {
 public:
-    MainMenu(int screenW, int screenH, Font font, const char *musicPath = nullptr);
+    MainMenu(int screenW, int screenH, Font font, const char *musicPath);
     ~MainMenu();
 
     void Update();

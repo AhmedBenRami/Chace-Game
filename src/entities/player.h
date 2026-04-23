@@ -13,7 +13,7 @@ public:
     Player(const char *dirPath, Vector2 startPos, Rectangle worldBounds, Font font,
            const char *runSoundPath,
            const char *jumpSoundPath,
-           const char *damageSoundPath, const char *coinCollectSoundPath);
+           const char *damageSoundPath, const char *coinCollectSoundPath, int HP);
     ~Player();
 
     void update(float dt);

@@ -9,7 +9,7 @@ public:
     // position    : spawn position (top-left of the enemy)
     // worldBounds : rectangle the enemy patrols inside
     // speed       : horizontal patrol speed in px/s
-    Enemy(const char *imagePath, Vector2 position, Rectangle worldBounds, float speed = 120.0f, const char *walkSoundPath = nullptr);
+    Enemy(const char *imagePath, Vector2 position, Rectangle worldBounds, float speed, const char *walkSoundPath);
     ~Enemy();
 
     void update(float dt);
