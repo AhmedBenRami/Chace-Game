@@ -432,7 +432,7 @@ void GameManager::loadLevel(int level)
                         "assets/player_run.mp3",
                         "assets/player_jump.mp3",
                         "assets/player_damage.mp3",
-                        "assets/player_coinCollect.mp3", 10);
+                        "assets/player_coinCollect.mp3", 3);
     player->resetReachedGate();
 
     Rectangle wb = map->getWorldBounds();

@@ -122,10 +122,12 @@ void Entity::playerUpdate()
         idleAnimation.tileTexture = LoadTextureFromImage(idleImage);
         runningAnimation.tileTexture = LoadTextureFromImage(runningImage);
         jumpingAnimation.tileTexture = LoadTextureFromImage(jumpingImage);
+        holoTexture = LoadTextureFromImage(holoImage); // ← was missing
 
         UnloadImage(idleImage);
         UnloadImage(runningImage);
         UnloadImage(jumpingImage);
+        UnloadImage(holoImage); // ← was missing
 
         textureHasLoaded = true;
     }
@@ -171,6 +173,7 @@ Entity::~Entity()
             UnloadTexture(idleAnimation.tileTexture);
             UnloadTexture(runningAnimation.tileTexture);
             UnloadTexture(jumpingAnimation.tileTexture);
+            UnloadTexture(holoTexture); // ← was missing
         }
         else
         {
@@ -178,6 +181,7 @@ Entity::~Entity()
             UnloadImage(idleImage);
             UnloadImage(runningImage);
             UnloadImage(jumpingImage);
+            UnloadImage(holoImage); // ← was missing
         }
     }
     else

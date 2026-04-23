@@ -1,4 +1,3 @@
-// player.h
 #pragma once
 
 #include "entity.h"
@@ -57,6 +56,11 @@ private:
     bool finishedLevel;
     bool reachedGate;
     Font hudFont;
+
+    // Hologram rotation tracking
+    float holoRotation;         // Current rotation angle in degrees
+    float holoRotationProgress; // Progress from 0 to 1 for the current cycle
+    bool holoCycleComplete;     // Tracks if a full 5-rotation cycle completed
 
     // Sounds  (entitySound inherited from Entity is the looped running footstep)
     Sound jumpSound;   // played once when the player leaves the ground
